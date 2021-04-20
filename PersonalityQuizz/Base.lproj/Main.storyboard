@@ -161,7 +161,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OGg-8q-QQ1" userLabel="rangedChoiceAnswer">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OGg-8q-QQ1" userLabel="rangedChoiceStack">
                                 <rect key="frame" x="97.666666666666686" y="412" width="195" height="119"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ds1-Dc-JZN">
@@ -202,7 +202,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="73c-jz-gmX" userLabel="multiChoiceAnswer">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="73c-jz-gmX" userLabel="multipleChoiceStack">
                                 <rect key="frame" x="102" y="376" width="186" height="205"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LPS-Q3-BGN">
@@ -282,7 +282,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gTm-LW-Mmq" userLabel="SAQChoices">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gTm-LW-Mmq" userLabel="singleChoiceStack">
                                 <rect key="frame" x="127.66666666666669" y="376" width="135" height="330"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLU-P0-tYi">
@@ -356,31 +356,23 @@
                     </view>
                     <navigationItem key="navigationItem" title="Questions" largeTitleDisplayMode="always" id="Zxw-YE-Mju"/>
                     <connections>
-                        <outlet property="multipleChoiceAnswer" destination="73c-jz-gmX" id="eq2-8e-JDZ"/>
-                        <outlet property="multipleChoiceLabel1" destination="CPL-NR-Zwc" id="wy6-CS-ty7"/>
-                        <outlet property="multipleChoiceLabel2" destination="HCP-wn-jAY" id="mFC-iN-CmN"/>
-                        <outlet property="multipleChoiceLabel3" destination="LAH-Nz-hfg" id="OiV-oT-jd0"/>
-                        <outlet property="multipleChoiceLabel4" destination="w1f-We-TQp" id="5Do-v2-lpP"/>
+                        <outlet property="multipleChoiceStack" destination="73c-jz-gmX" id="mN5-1t-tJM"/>
                         <outlet property="questionLabel" destination="2Dl-fs-HTL" id="d0r-x1-Ewf"/>
                         <outlet property="questionNumber" destination="lee-e1-poD" id="Aya-Hp-PQA"/>
-                        <outlet property="rangedChoiceAnswer" destination="OGg-8q-QQ1" id="29U-5E-RYV"/>
-                        <outlet property="rangedChoiceLabel1" destination="1m9-F9-Pd6" id="9WB-w1-SgU"/>
-                        <outlet property="rangedChoiceLabel2" destination="eIT-RY-Dnc" id="JPj-4O-BtZ"/>
-                        <outlet property="singleChoice1" destination="DLU-P0-tYi" id="m4f-hW-EIX"/>
-                        <outlet property="singleChoice2" destination="lGs-hz-330" id="LyD-tR-GrZ"/>
-                        <outlet property="singleChoice3" destination="LdI-86-4nz" id="mON-Ic-ryW"/>
-                        <outlet property="singleChoice4" destination="fiI-xS-AFa" id="0v6-f6-COA"/>
-                        <outlet property="singleChoiceAnswer" destination="gTm-LW-Mmq" id="l1h-ut-sKU"/>
+                        <outlet property="rangedChoiceStack" destination="OGg-8q-QQ1" id="tKp-Td-FgS"/>
+                        <outlet property="singleChoiceStack" destination="gTm-LW-Mmq" id="riA-aB-xo7"/>
                         <outlet property="submitButton" destination="GmH-ba-I9s" id="VaF-iZ-hO5"/>
-                        <outlet property="testProgress" destination="Y6B-NP-oo9" id="Zeu-CW-lvi"/>
-                        <outletCollection property="singleChoices" destination="DLU-P0-tYi" collectionClass="NSMutableArray" id="UZX-S8-WmQ"/>
-                        <outletCollection property="singleChoices" destination="lGs-hz-330" collectionClass="NSMutableArray" id="UtE-fy-Ieq"/>
-                        <outletCollection property="singleChoices" destination="LdI-86-4nz" collectionClass="NSMutableArray" id="x52-BA-oTz"/>
-                        <outletCollection property="singleChoices" destination="fiI-xS-AFa" collectionClass="NSMutableArray" id="PW8-wQ-8Yu"/>
+                        <outlet property="testProgressView" destination="Y6B-NP-oo9" id="Rxk-47-KMA"/>
                         <outletCollection property="multipleChoiceLabels" destination="CPL-NR-Zwc" collectionClass="NSMutableArray" id="j1v-gh-8g0"/>
                         <outletCollection property="multipleChoiceLabels" destination="HCP-wn-jAY" collectionClass="NSMutableArray" id="sh0-VB-EEi"/>
                         <outletCollection property="multipleChoiceLabels" destination="LAH-Nz-hfg" collectionClass="NSMutableArray" id="hKv-kB-nTx"/>
                         <outletCollection property="multipleChoiceLabels" destination="w1f-We-TQp" collectionClass="NSMutableArray" id="4vO-4j-8ML"/>
+                        <outletCollection property="singleChoiceButtons" destination="DLU-P0-tYi" collectionClass="NSMutableArray" id="VS0-Dc-Mvw"/>
+                        <outletCollection property="singleChoiceButtons" destination="lGs-hz-330" collectionClass="NSMutableArray" id="88O-Ng-Pds"/>
+                        <outletCollection property="singleChoiceButtons" destination="LdI-86-4nz" collectionClass="NSMutableArray" id="63p-Sz-hgT"/>
+                        <outletCollection property="singleChoiceButtons" destination="fiI-xS-AFa" collectionClass="NSMutableArray" id="fKj-Ow-lkf"/>
+                        <outletCollection property="rangedChoiceLabels" destination="1m9-F9-Pd6" collectionClass="NSMutableArray" id="WzV-aD-Foa"/>
+                        <outletCollection property="rangedChoiceLabels" destination="eIT-RY-Dnc" collectionClass="NSMutableArray" id="gar-VU-uoA"/>
                         <segue destination="IXS-9l-6pf" kind="show" identifier="ResultSegue" id="jzw-Hh-5JB"/>
                     </connections>
                 </viewController>
