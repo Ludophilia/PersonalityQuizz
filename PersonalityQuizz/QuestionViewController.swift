@@ -18,6 +18,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet var singleChoice2: UIButton!
     @IBOutlet var singleChoice3: UIButton!
     @IBOutlet var singleChoice4: UIButton!
+    @IBOutlet var singleChoices: [UIButton]! // For testing purposes
     
     @IBOutlet var rangedChoiceAnswer: UIStackView!
     @IBOutlet var rangedChoiceLabel1: UILabel!
@@ -29,11 +30,12 @@ class QuestionViewController: UIViewController {
     @IBOutlet var multipleChoiceLabel2: UILabel!
     @IBOutlet var multipleChoiceLabel3: UILabel!
     @IBOutlet var multipleChoiceLabel4: UILabel!
+    @IBOutlet var multipleChoiceLabels: [UILabel]! // For testing purposes
     
     var questionIndex = 0
     var questions: [Question] = [
         Question(text: "Which food do you like the most?",
-                 type: .ranged,
+                 type: .single,
                  answers: [
                     Answer(text: "Steak", type: .dog),
                     Answer(text: "Fish", type: .cat),
@@ -41,7 +43,7 @@ class QuestionViewController: UIViewController {
                     Answer(text: "Corn", type: .turtle)
                  ]
         ),
-        Question(text: "Which activities do you enjoy",
+        Question(text: "Which activities do you enjoy?",
                  type: .multiple,
                  answers: [
                     Answer(text: "Swimming", type: .turtle),
@@ -50,7 +52,7 @@ class QuestionViewController: UIViewController {
                     Answer(text: "Eating", type: .dog)
                  ]
         ),
-        Question(text: "How much do you enjoy car rides",
+        Question(text: "How much do you enjoy car rides?",
                  type: .ranged,
                  answers: [
                     Answer(text: "I dislike them", type: .cat),
@@ -80,21 +82,42 @@ class QuestionViewController: UIViewController {
         rangedChoiceAnswer.isHidden = true
         multipleChoiceAnswer.isHidden = true
         submitButton.isHidden = true
-
-        questionNumber.text = String(format: "%02d", arguments: [questionIndex+1])
         
         let currentQuestion = questions[questionIndex]
-        let currrentAnswers = currentQuestion.answers
+        let currentAnswers = currentQuestion.answers
+        let totalProgress = Float(questionIndex+1)/Float(questions.count)
+        
+        questionLabel.text = currentQuestion.text
+        questionNumber.text = String(format: "%02d", arguments: [questionIndex+1])
+        testProgress.setProgress(totalProgress, animated: true)
         
         switch currentQuestion.type {
         case .single:
-            singleChoiceAnswer.isHidden = false
+            updateSingleStack(using: currentAnswers)
         case .multiple:
-            multipleChoiceAnswer.isHidden = false
-            submitButton.isHidden = false
+            updateMultipleStack(using: currentAnswers)
         case .ranged:
-            rangedChoiceAnswer.isHidden = false
-            submitButton.isHidden = false
+            updateRangedStack(using: currentAnswers)
         }
+    }
+    
+    func updateSingleStack(using answers: [Answer]) {
+        singleChoiceAnswer.isHidden = false
+        for id in 0...3 {
+            singleChoices[id].setTitle(answers[id].text, for: .normal)
+        }
+    }
+    func updateMultipleStack(using answers: [Answer]) {
+        multipleChoiceAnswer.isHidden = false
+        submitButton.isHidden = false
+        for id in 0...3 {
+            multipleChoiceLabels[id].text = answers[id].text
+        }
+    }
+    func updateRangedStack(using answers: [Answer]) {
+        rangedChoiceAnswer.isHidden = false
+        submitButton.isHidden = false
+        rangedChoiceLabel1.text = answers.first?.text
+        rangedChoiceLabel2.text = answers.last?.text
     }
 }

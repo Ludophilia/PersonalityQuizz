@@ -202,61 +202,61 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="73c-jz-gmX" userLabel="multiChoiceAnswer">
-                                <rect key="frame" x="102" y="376" width="186" height="195"/>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="73c-jz-gmX" userLabel="multiChoiceAnswer">
+                                <rect key="frame" x="102" y="376" width="186" height="205"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LPS-Q3-BGN">
-                                        <rect key="frame" x="0.0" y="0.0" width="186" height="45"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LPS-Q3-BGN">
+                                        <rect key="frame" x="0.0" y="0.0" width="186" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPL-NR-Zwc">
-                                                <rect key="frame" x="0.0" y="0.0" width="129" height="45"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPL-NR-Zwc">
+                                                <rect key="frame" x="0.0" y="0.0" width="129" height="31"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ML-Mk-Ayi">
-                                                <rect key="frame" x="137" y="0.0" width="51" height="45"/>
-                                            </switch>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-CE-34n">
-                                        <rect key="frame" x="0.0" y="64" width="186" height="31"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCP-wn-jAY">
-                                                <rect key="frame" x="0.0" y="0.0" width="129" height="31"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aar-CI-9et">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ML-Mk-Ayi">
                                                 <rect key="frame" x="137" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="92V-Bg-oiN">
-                                        <rect key="frame" x="0.0" y="114" width="186" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-CE-34n">
+                                        <rect key="frame" x="0.0" y="58" width="186" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Fries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAH-Nz-hfg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCP-wn-jAY">
                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="31"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yff-z9-yCR">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aar-CI-9et">
                                                 <rect key="frame" x="137" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="onX-lI-pMQ">
-                                        <rect key="frame" x="0.0" y="164" width="186" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="92V-Bg-oiN">
+                                        <rect key="frame" x="0.0" y="116" width="186" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pasta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1f-We-TQp">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAH-Nz-hfg">
                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="31"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stM-6c-Opj">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yff-z9-yCR">
+                                                <rect key="frame" x="137" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="onX-lI-pMQ">
+                                        <rect key="frame" x="0.0" y="174" width="186" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pasta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1f-We-TQp">
+                                                <rect key="frame" x="0.0" y="0.0" width="129" height="31"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stM-6c-Opj">
                                                 <rect key="frame" x="137" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -341,7 +341,7 @@
                             <constraint firstItem="Y6B-NP-oo9" firstAttribute="top" secondItem="lee-e1-poD" secondAttribute="bottom" constant="9" id="Exy-Nd-rJX"/>
                             <constraint firstItem="gTm-LW-Mmq" firstAttribute="centerX" secondItem="weq-IM-gDM" secondAttribute="centerX" id="GXx-Xk-M2y"/>
                             <constraint firstItem="2m7-lU-vAb" firstAttribute="bottom" secondItem="OGg-8q-QQ1" secondAttribute="bottom" constant="225" id="Iva-8H-49M"/>
-                            <constraint firstItem="2m7-lU-vAb" firstAttribute="bottom" secondItem="73c-jz-gmX" secondAttribute="bottom" constant="185" id="JYh-b1-hP1"/>
+                            <constraint firstItem="2m7-lU-vAb" firstAttribute="bottom" secondItem="73c-jz-gmX" secondAttribute="bottom" constant="175" id="JYh-b1-hP1"/>
                             <constraint firstItem="2m7-lU-vAb" firstAttribute="bottom" secondItem="gTm-LW-Mmq" secondAttribute="bottom" constant="50" id="Mky-Dq-5QK"/>
                             <constraint firstItem="OGg-8q-QQ1" firstAttribute="top" secondItem="2Dl-fs-HTL" secondAttribute="bottom" constant="116" id="Zm6-R1-voh"/>
                             <constraint firstItem="OGg-8q-QQ1" firstAttribute="centerX" secondItem="weq-IM-gDM" secondAttribute="centerX" id="aH7-H7-nvq"/>
@@ -373,6 +373,14 @@
                         <outlet property="singleChoiceAnswer" destination="gTm-LW-Mmq" id="l1h-ut-sKU"/>
                         <outlet property="submitButton" destination="GmH-ba-I9s" id="VaF-iZ-hO5"/>
                         <outlet property="testProgress" destination="Y6B-NP-oo9" id="Zeu-CW-lvi"/>
+                        <outletCollection property="singleChoices" destination="DLU-P0-tYi" collectionClass="NSMutableArray" id="UZX-S8-WmQ"/>
+                        <outletCollection property="singleChoices" destination="lGs-hz-330" collectionClass="NSMutableArray" id="UtE-fy-Ieq"/>
+                        <outletCollection property="singleChoices" destination="LdI-86-4nz" collectionClass="NSMutableArray" id="x52-BA-oTz"/>
+                        <outletCollection property="singleChoices" destination="fiI-xS-AFa" collectionClass="NSMutableArray" id="PW8-wQ-8Yu"/>
+                        <outletCollection property="multipleChoiceLabels" destination="CPL-NR-Zwc" collectionClass="NSMutableArray" id="j1v-gh-8g0"/>
+                        <outletCollection property="multipleChoiceLabels" destination="HCP-wn-jAY" collectionClass="NSMutableArray" id="sh0-VB-EEi"/>
+                        <outletCollection property="multipleChoiceLabels" destination="LAH-Nz-hfg" collectionClass="NSMutableArray" id="hKv-kB-nTx"/>
+                        <outletCollection property="multipleChoiceLabels" destination="w1f-We-TQp" collectionClass="NSMutableArray" id="4vO-4j-8ML"/>
                         <segue destination="IXS-9l-6pf" kind="show" identifier="ResultSegue" id="jzw-Hh-5JB"/>
                     </connections>
                 </viewController>
