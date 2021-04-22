@@ -26,6 +26,14 @@ class QuestionViewController: UIViewController {
     @IBOutlet var submitButton: UIButton!
     
     var questionIndex = 0
+    var questionsAnswered = 0 {
+        didSet {
+            if (questionsAnswered <= (questions.count - 1)) {
+                questionIndex += 1
+            }
+        }
+    }
+    
     let questions: [Question] = testQuestions
     var currentQuestion: Question { questions[questionIndex] }
     var currentAnswers: [Answer] { currentQuestion.answers }
@@ -65,8 +73,8 @@ class QuestionViewController: UIViewController {
     }
     
     func nextQuestion() {
-        questionIndex += 1
-        if questionIndex < questions.count {
+        questionsAnswered += 1
+        if questionsAnswered < questions.count {
             updateUI()
         } else {
             performSegue(withIdentifier: "ResultSegue", sender: nil)
@@ -104,11 +112,13 @@ class QuestionViewController: UIViewController {
         submitButton.isHidden = false
         for id in 0...3 {
             multipleChoiceLabels[id].text = answers[id].text
+            multipleChoiceSwitches[id].isOn = false
         }
     }
     func updateRangedStack(using answers: [Answer]) {
         rangedChoiceStack.isHidden = false
         submitButton.isHidden = false
+        rangedChoiceSlider.setValue(0.5, animated: false)
         for label in rangedChoiceLabels {
             label.text = (label == rangedChoiceLabels.first!) ? answers.first?.text : answers.last?.text
         }
