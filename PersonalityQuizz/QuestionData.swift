@@ -9,7 +9,7 @@ import Foundation
 
 let testQuestions = [
     Question(text: "Which food do you like the most?",
-             type: .ranged,
+             type: .single,
              answers: [
                 Answer(text: "Steak", type: .dog),
                 Answer(text: "Fish", type: .cat),

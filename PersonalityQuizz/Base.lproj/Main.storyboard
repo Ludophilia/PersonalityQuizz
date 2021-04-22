@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -167,17 +168,17 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ds1-Dc-JZN">
                                         <rect key="frame" x="-2" y="0.0" width="199" height="84.666666666666671"/>
                                     </slider>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="dMO-q7-eng">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dMO-q7-eng">
                                         <rect key="frame" x="0.0" y="91.666666666666686" width="195" height="27.333333333333329"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A little" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m9-F9-Pd6">
-                                                <rect key="frame" x="0.0" y="0.0" width="61" height="27.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A little" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m9-F9-Pd6">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="27.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A lot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-RY-Dnc">
-                                                <rect key="frame" x="149" y="0.0" width="46" height="27.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A lot" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-RY-Dnc">
+                                                <rect key="frame" x="101.33333333333331" y="0.0" width="93.666666666666686" height="27.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -201,6 +202,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="validateRangedOrMultipleChoice" destination="5Rd-fS-jf4" eventType="touchUpInside" id="g7j-gE-8Hb"/>
+                                </connections>
                             </button>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="73c-jz-gmX" userLabel="multipleChoiceStack">
                                 <rect key="frame" x="102" y="376" width="186" height="205"/>
@@ -228,7 +232,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aar-CI-9et">
+                                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aar-CI-9et">
                                                 <rect key="frame" x="137" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -242,7 +246,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yff-z9-yCR">
+                                            <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yff-z9-yCR">
                                                 <rect key="frame" x="137" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -256,7 +260,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stM-6c-Opj">
+                                            <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stM-6c-Opj">
                                                 <rect key="frame" x="137" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -296,30 +300,42 @@
                                         <state key="normal" title="Morning">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="singleChoiceButtonPressed:" destination="5Rd-fS-jf4" eventType="touchUpInside" id="BXi-US-bbx"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGs-hz-330">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGs-hz-330">
                                         <rect key="frame" x="0.0" y="90" width="135" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                         <state key="normal" title="Noon">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="singleChoiceButtonPressed:" destination="5Rd-fS-jf4" eventType="touchUpInside" id="1t9-zq-W52"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdI-86-4nz">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdI-86-4nz">
                                         <rect key="frame" x="0.0" y="180" width="135" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                         <state key="normal" title="Afternoon">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="singleChoiceButtonPressed:" destination="5Rd-fS-jf4" eventType="touchUpInside" id="AjJ-ju-Usd"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiI-xS-AFa">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiI-xS-AFa">
                                         <rect key="frame" x="0.0" y="270" width="135" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                         <state key="normal" title="Night">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="singleChoiceButtonPressed:" destination="5Rd-fS-jf4" eventType="touchUpInside" id="0Bm-Eo-6EO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -359,9 +375,10 @@
                         <outlet property="multipleChoiceStack" destination="73c-jz-gmX" id="mN5-1t-tJM"/>
                         <outlet property="questionLabel" destination="2Dl-fs-HTL" id="d0r-x1-Ewf"/>
                         <outlet property="questionNumber" destination="lee-e1-poD" id="Aya-Hp-PQA"/>
+                        <outlet property="rangedChoiceSlider" destination="ds1-Dc-JZN" id="yXZ-dy-IJz"/>
                         <outlet property="rangedChoiceStack" destination="OGg-8q-QQ1" id="tKp-Td-FgS"/>
                         <outlet property="singleChoiceStack" destination="gTm-LW-Mmq" id="riA-aB-xo7"/>
-                        <outlet property="submitButton" destination="GmH-ba-I9s" id="VaF-iZ-hO5"/>
+                        <outlet property="submitButton" destination="GmH-ba-I9s" id="Ifb-7c-gNI"/>
                         <outlet property="testProgressView" destination="Y6B-NP-oo9" id="Rxk-47-KMA"/>
                         <outletCollection property="multipleChoiceLabels" destination="CPL-NR-Zwc" collectionClass="NSMutableArray" id="j1v-gh-8g0"/>
                         <outletCollection property="multipleChoiceLabels" destination="HCP-wn-jAY" collectionClass="NSMutableArray" id="sh0-VB-EEi"/>
@@ -373,6 +390,10 @@
                         <outletCollection property="singleChoiceButtons" destination="fiI-xS-AFa" collectionClass="NSMutableArray" id="fKj-Ow-lkf"/>
                         <outletCollection property="rangedChoiceLabels" destination="1m9-F9-Pd6" collectionClass="NSMutableArray" id="WzV-aD-Foa"/>
                         <outletCollection property="rangedChoiceLabels" destination="eIT-RY-Dnc" collectionClass="NSMutableArray" id="gar-VU-uoA"/>
+                        <outletCollection property="multipleChoiceSwitches" destination="0ML-Mk-Ayi" collectionClass="NSMutableArray" id="kih-Ss-gC4"/>
+                        <outletCollection property="multipleChoiceSwitches" destination="aar-CI-9et" collectionClass="NSMutableArray" id="6s0-Gt-dbF"/>
+                        <outletCollection property="multipleChoiceSwitches" destination="Yff-z9-yCR" collectionClass="NSMutableArray" id="sMV-DK-yzF"/>
+                        <outletCollection property="multipleChoiceSwitches" destination="stM-6c-Opj" collectionClass="NSMutableArray" id="ifv-jM-ctx"/>
                         <segue destination="IXS-9l-6pf" kind="show" identifier="ResultSegue" id="jzw-Hh-5JB"/>
                     </connections>
                 </viewController>
@@ -460,7 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIx-lG-dm1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="-504"/>
+            <point key="canvasLocation" x="1595" y="-504"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FOD-i6-0gX">

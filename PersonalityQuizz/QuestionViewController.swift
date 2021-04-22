@@ -19,24 +19,57 @@ class QuestionViewController: UIViewController {
 
     @IBOutlet var singleChoiceButtons: [UIButton]!
     @IBOutlet var multipleChoiceLabels: [UILabel]!
+    @IBOutlet var multipleChoiceSwitches: [UISwitch]!
     @IBOutlet var rangedChoiceLabels: [UILabel]!
+    @IBOutlet var rangedChoiceSlider: UISlider!
     
     @IBOutlet var submitButton: UIButton!
-
+    
     var questionIndex = 0
-    var questions: [Question] = testQuestions
+    let questions: [Question] = testQuestions
+    var currentQuestion: Question { questions[questionIndex] }
+    var currentAnswers: [Answer] { currentQuestion.answers }
     var answersChosen = [Answer]()
+    var totalProgress: Float { Float(questionIndex+1)/Float(questions.count) }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         roundButtonCorners()
         updateUI()
     }
-
+    
     func roundButtonCorners() {
         submitButton.layer.cornerRadius = CGFloat(15)
         for button in singleChoiceButtons {
             button.layer.cornerRadius = CGFloat(15)
+        }
+    }
+    
+    @IBAction func singleChoiceButtonPressed(_ sender: UIButton) {
+        answersChosen += [currentAnswers[sender.tag]]
+        nextQuestion()
+    }
+    
+    @IBAction func validateRangedOrMultipleChoice() {
+        if !multipleChoiceStack.isHidden {
+            for toggle in multipleChoiceSwitches {
+                if toggle.isOn {
+                    answersChosen += [currentAnswers[toggle.tag]]
+                }
+            }
+        } else if !rangedChoiceStack.isHidden {
+            let rangeIndex = Int(rangedChoiceSlider.value * (Float(currentAnswers.count) - 0.01))
+            answersChosen += [currentAnswers[rangeIndex]]
+        }
+        nextQuestion()
+    }
+    
+    func nextQuestion() {
+        questionIndex += 1
+        if questionIndex < questions.count {
+            updateUI()
+        } else {
+            performSegue(withIdentifier: "ResultSegue", sender: nil)
         }
     }
     
@@ -45,10 +78,6 @@ class QuestionViewController: UIViewController {
         rangedChoiceStack.isHidden = true
         multipleChoiceStack.isHidden = true
         submitButton.isHidden = true
-        
-        let currentQuestion = questions[questionIndex]
-        let currentAnswers = currentQuestion.answers
-        let totalProgress = Float(questionIndex+1)/Float(questions.count)
         
         questionLabel.text = currentQuestion.text
         questionNumber.text = String(format: "%02d", arguments: [questionIndex+1])
@@ -81,8 +110,7 @@ class QuestionViewController: UIViewController {
         rangedChoiceStack.isHidden = false
         submitButton.isHidden = false
         for label in rangedChoiceLabels {
-            let isFirst = label == rangedChoiceLabels.first!
-            label.text = isFirst ? answers.first?.text : answers.last?.text
+            label.text = (label == rangedChoiceLabels.first!) ? answers.first?.text : answers.last?.text
         }
     }
 }
