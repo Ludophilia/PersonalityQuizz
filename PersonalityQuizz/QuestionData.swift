@@ -52,8 +52,8 @@ enum AnswerType {
     case single, multiple, ranged
 }
 
-enum AnimalType: Character {
-    case dog = "🐶", cat = "🐱", rabbit = "🐰", turtle = "🐢"
+enum AnimalType: String {
+    case dog = "DOG 🐶", cat = "CAT 🐱", rabbit = "RABBIT 🐰", turtle = "TURTLE 🐢"
     
     var definition: String {
         switch self {

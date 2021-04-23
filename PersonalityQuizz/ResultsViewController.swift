@@ -8,22 +8,32 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
-
+    
+    @IBOutlet var restartButton: UIButton!
+    @IBOutlet var resultAnswerLabel: UILabel!
+    @IBOutlet var resultDefinitionLabel: UILabel!
+    
+    var responses: [Answer]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        roundButtonCorners()
+        calculatePersonalityResult()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func calculatePersonalityResult() {
+        let responseTypes = responses.map { $0.type }
+        var frequencyOfAnswers = [AnimalType: Int]()
+        for type in responseTypes { frequencyOfAnswers[type, default: 0] += 1 }
+        let mostCommonAnswer = frequencyOfAnswers.sorted { $0.1 > $1.1 }.first!.key
+        
+        resultAnswerLabel.text = "\(mostCommonAnswer.rawValue)"
+        resultDefinitionLabel.text = mostCommonAnswer.definition
+        print(responseTypes)
     }
-    */
+    
+    func roundButtonCorners() {
+        restartButton.layer.cornerRadius = CGFloat(15)
+    }
 
 }

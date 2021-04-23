@@ -46,6 +46,13 @@ class QuestionViewController: UIViewController {
         updateUI()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultSegue" {
+            let resultsViewController = segue.destination as! ResultsViewController
+            resultsViewController.responses = answersChosen
+        }
+    }
+    
     func roundButtonCorners() {
         submitButton.layer.cornerRadius = CGFloat(15)
         for button in singleChoiceButtons {
