@@ -25,6 +25,8 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet var submitButton: UIButton!
     
+    let questions: [Question] = testQuestions
+    var currentQuestion: Question { questions[questionIndex] }
     var questionIndex = 0
     var questionsAnswered = 0 {
         didSet {
@@ -33,12 +35,16 @@ class QuestionViewController: UIViewController {
             }
         }
     }
-    
-    let questions: [Question] = testQuestions
-    var currentQuestion: Question { questions[questionIndex] }
     var currentAnswers: [Answer] { currentQuestion.answers }
     var answersChosen = [Answer]()
-    var totalProgress: Float { Float(questionIndex+1)/Float(questions.count) }
+    var totalProgress: Float { Float(questionIndex + 1) / Float(questions.count) }
+        
+    @IBAction func unwindToQuestionViewController(segue: UIStoryboardSegue) {
+        questionsAnswered = 0
+        questionIndex = 0
+        answersChosen = [Answer]()
+        updateUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

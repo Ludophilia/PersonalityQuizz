@@ -19,6 +19,7 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
         roundButtonCorners()
         calculatePersonalityResult()
+        navigationItem.hidesBackButton = true
     }
     
     func calculatePersonalityResult() {
@@ -29,7 +30,6 @@ class ResultsViewController: UIViewController {
         
         resultAnswerLabel.text = "\(mostCommonAnswer.rawValue)"
         resultDefinitionLabel.text = mostCommonAnswer.definition
-        print(responseTypes)
     }
     
     func roundButtonCorners() {
