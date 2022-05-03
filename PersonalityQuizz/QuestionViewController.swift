@@ -9,54 +9,47 @@ import UIKit
 
 class QuestionViewController: UIViewController {
 
+    // MARK: UI Components
+    
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var questionNumber: UILabel!
     @IBOutlet var testProgressView: UIProgressView!
     
     @IBOutlet var singleChoiceStack: UIStackView!
-    @IBOutlet var rangedChoiceStack: UIStackView!
-    @IBOutlet var multipleChoiceStack: UIStackView!
-
     @IBOutlet var singleChoiceButtons: [UIButton]!
-    @IBOutlet var multipleChoiceLabels: [UILabel]!
-    @IBOutlet var multipleChoiceSwitches: [UISwitch]!
+
+    @IBOutlet var rangedChoiceStack: UIStackView!
     @IBOutlet var rangedChoiceLabels: [UILabel]!
     @IBOutlet var rangedChoiceSlider: UISlider!
     
+    @IBOutlet var multipleChoiceStack: UIStackView!
+    @IBOutlet var multipleChoiceLabels: [UILabel]!
+    @IBOutlet var multipleChoiceSwitches: [UISwitch]!
+
     @IBOutlet var submitButton: UIButton!
     
-    let questions: [Question] = testQuestions
-    var currentQuestion: Question { questions[questionIndex] }
+    // MARK: Model Data
+    
+    let questions: [Question] = Question.testQuestions
     var questionIndex = 0
+    var currentQuestion: Question { return questions[questionIndex] }
     var questionsAnswered = 0 {
         didSet {
-            if (questionsAnswered <= (questions.count - 1)) {
+            if (questionsAnswered < (questions.count)) {
                 questionIndex += 1
             }
         }
     }
-    var currentAnswers: [Answer] { currentQuestion.answers }
     var answersChosen = [Answer]()
+    var currentAnswers: [Answer] { return currentQuestion.answers }
     var totalProgress: Float { Float(questionIndex + 1) / Float(questions.count) }
-        
-    @IBAction func unwindToQuestionViewController(segue: UIStoryboardSegue) {
-        questionsAnswered = 0
-        questionIndex = 0
-        answersChosen = [Answer]()
-        updateUI()
-    }
+    
+    // MARK: Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
         roundButtonCorners()
         updateUI()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ResultSegue" {
-            let resultsViewController = segue.destination as! ResultsViewController
-            resultsViewController.responses = answersChosen
-        }
     }
     
     func roundButtonCorners() {
@@ -66,33 +59,7 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    @IBAction func singleChoiceButtonPressed(_ sender: UIButton) {
-        answersChosen += [currentAnswers[sender.tag]]
-        nextQuestion()
-    }
-    
-    @IBAction func validateRangedOrMultipleChoice() {
-        if !multipleChoiceStack.isHidden {
-            for toggle in multipleChoiceSwitches {
-                if toggle.isOn {
-                    answersChosen += [currentAnswers[toggle.tag]]
-                }
-            }
-        } else if !rangedChoiceStack.isHidden {
-            let rangeIndex = Int(rangedChoiceSlider.value * (Float(currentAnswers.count) - 0.01))
-            answersChosen += [currentAnswers[rangeIndex]]
-        }
-        nextQuestion()
-    }
-    
-    func nextQuestion() {
-        questionsAnswered += 1
-        if questionsAnswered < questions.count {
-            updateUI()
-        } else {
-            performSegue(withIdentifier: "ResultSegue", sender: nil)
-        }
-    }
+    // MARK: UI Refresh
     
     func updateUI() {
         singleChoiceStack.isHidden = true
@@ -136,4 +103,52 @@ class QuestionViewController: UIViewController {
             label.text = (label == rangedChoiceLabels.first!) ? answers.first?.text : answers.last?.text
         }
     }
+    
+    // MARK: UI Actions Logic
+    
+    @IBAction func singleChoiceButtonPressed(_ sender: UIButton) {
+        answersChosen += [currentAnswers[sender.tag]]
+        nextQuestion()
+    }
+    
+    @IBAction func validateRangedOrMultipleChoice() {
+        if !multipleChoiceStack.isHidden {
+            for toggle in multipleChoiceSwitches {
+                if toggle.isOn {
+                    answersChosen += [currentAnswers[toggle.tag]]
+                }
+            }
+        } else if !rangedChoiceStack.isHidden {
+            let rangeIndex = Int(rangedChoiceSlider.value * (Float(currentAnswers.count) - 0.01))
+            answersChosen += [currentAnswers[rangeIndex]]
+        }
+        nextQuestion()
+    }
+    
+    func nextQuestion() {
+        questionsAnswered += 1
+        if questionsAnswered < questions.count {
+            updateUI()
+        } else {
+            performSegue(withIdentifier: "ResultSegue", sender: nil)
+        }
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultSegue" {
+            let resultsViewController = segue.destination as! ResultsViewController
+            resultsViewController.responses = answersChosen
+        }
+    }
+    
+    @IBAction func unwindToQuestionViewController(segue: UIStoryboardSegue) {
+        questionsAnswered = 0
+        questionIndex = 0
+        answersChosen = [Answer]()
+        updateUI()
+    }
+        
+
 }

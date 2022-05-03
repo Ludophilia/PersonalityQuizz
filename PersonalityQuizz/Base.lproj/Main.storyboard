@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -132,13 +133,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animalLabel" destination="8X9-aw-nY0" id="SPR-A9-n1j"/>
-                        <outlet property="areLabel" destination="iit-vJ-bhQ" id="Ky1-SI-pCi"/>
                         <outlet property="goButton" destination="k1u-ka-Pqt" id="rg3-Ox-or1"/>
-                        <outlet property="questionLabel" destination="CGd-Ck-d31" id="UAf-XL-dPv"/>
-                        <outlet property="titleStack" destination="dUq-ex-fP3" id="Pqa-JZ-PdK"/>
-                        <outlet property="whichLabel" destination="kah-Nr-GyW" id="aXj-mv-yDE"/>
-                        <outlet property="youLabel" destination="NLf-Wb-Ebo" id="yJv-kv-ghy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -163,13 +158,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OGg-8q-QQ1" userLabel="rangedChoiceStack">
-                                <rect key="frame" x="97.666666666666686" y="412" width="195" height="119"/>
+                                <rect key="frame" x="97.666666666666686" y="446" width="195" height="119"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ds1-Dc-JZN">
                                         <rect key="frame" x="-2" y="0.0" width="199" height="84.666666666666671"/>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dMO-q7-eng">
-                                        <rect key="frame" x="0.0" y="91.666666666666686" width="195" height="27.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="91.666666666666629" width="195" height="27.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A little" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m9-F9-Pd6">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="27.333333333333332"/>
@@ -192,7 +187,7 @@
                                 </constraints>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmH-ba-I9s" userLabel="submitButton">
-                                <rect key="frame" x="120" y="676" width="150" height="60"/>
+                                <rect key="frame" x="120" y="710" width="150" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="BHY-Zm-F5A"/>
@@ -207,7 +202,7 @@
                                 </connections>
                             </button>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="73c-jz-gmX" userLabel="multipleChoiceStack">
-                                <rect key="frame" x="102" y="376" width="186" height="205"/>
+                                <rect key="frame" x="102" y="410" width="186" height="205"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LPS-Q3-BGN">
                                         <rect key="frame" x="0.0" y="0.0" width="186" height="31"/>
@@ -271,7 +266,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dl-fs-HTL" userLabel="Question">
-                                <rect key="frame" x="45" y="218" width="300" height="78"/>
+                                <rect key="frame" x="45" y="252" width="300" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="s88-g7-8Bb"/>
                                 </constraints>
@@ -287,7 +282,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gTm-LW-Mmq" userLabel="singleChoiceStack">
-                                <rect key="frame" x="127.66666666666669" y="376" width="135" height="330"/>
+                                <rect key="frame" x="127.66666666666669" y="410" width="135" height="330"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLU-P0-tYi">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
@@ -410,7 +405,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ful-TP-i0m">
-                                <rect key="frame" x="52.666666666666657" y="666" width="285" height="60"/>
+                                <rect key="frame" x="52.666666666666657" y="700" width="285" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="285" id="5wa-DD-n1Y"/>
@@ -526,7 +521,7 @@
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
