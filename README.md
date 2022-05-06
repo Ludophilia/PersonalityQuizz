@@ -23,4 +23,4 @@ L'application est optimisée pour iOS 14.
 
 ## Captures
 
-<img src="walkthough_iphone12.gif">
+<img src="walkthough_iphone12.gif" style="height:750px">
